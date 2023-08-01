@@ -15,7 +15,7 @@ namespace Glasac23.Objekti
         bool predsednicki = false;
         bool parlamentarni = false;
         int brojGlasaca;
-        DateTime datum;
+        string datum;
         
         List<kandidati> predsednickiKandidati = new List<kandidati>();
         List<partije> stranke = new List<partije>();
@@ -23,6 +23,12 @@ namespace Glasac23.Objekti
         int brGlasova = 0;
         int brNevazecih = 0;
         double izlaznost = 0;
+        bool aktivni = false;
+
+        public izbori() 
+        { 
+
+        }
 
         public void izbornaDodjelka(int a, int b) // bez promene 0 , nije cekirano 1 , cekirano 2 , prva cifra predsenicki druga parlamentarni
         {
@@ -62,5 +68,18 @@ namespace Glasac23.Objekti
         {
             return stranke;
         }
+
+        public void Kreiranje(string dd,int n)
+        {
+            datum = dd;
+            brojGlasaca = n;
+            aktivni = true;
+        }
+
+        public bool PostojeIzbori()
+        {
+            return aktivni;
+        }
+
     }
 }

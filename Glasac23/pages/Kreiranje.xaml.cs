@@ -23,12 +23,16 @@ namespace Glasac23.pages
     {
 
         izbori aktivni;
+        Frame Okvir;
+        List<izbori> arhivaIzbori;
 
-        public Kreiranje(ref izbori aktivni)
+        public Kreiranje(ref izbori aktivni,ref Frame frejm,ref List<izbori> izbori)
         {
             InitializeComponent();
             this.aktivni = aktivni;
             this.aktivni = new izbori();
+            Okvir = frejm;
+            arhivaIzbori = izbori;
         }
 
         private void predsedickiButton_Checked(object sender, RoutedEventArgs e)
@@ -77,6 +81,22 @@ namespace Glasac23.pages
             listaPartija.ItemsSource = privremenaLista;
 
             imeStrankeUnos.Text = "";
+        }
+
+        private void kriranjrbutton_Click(object sender, RoutedEventArgs e)
+        {
+            var date = DatumIzbor.SelectedDate.Value;
+
+            string datum = date.ToString("dd.MM.yyyy");
+            string glasaci = BrojGlasaca.Text;
+            int brGlasaca = int.Parse(glasaci);
+
+            aktivni.Kreiranje(datum, brGlasaca);
+
+            MainMenu meni = new MainMenu(ref Okvir, ref aktivni, ref arhivaIzbori);
+            Okvir.NavigationService.Navigate(meni);
+
+
         }
     }
 }

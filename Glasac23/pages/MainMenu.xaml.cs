@@ -32,14 +32,29 @@ namespace Glasac23.pages
             Okvir = frejm;
             this.aktivni = aktivni;
             this.arhivaIzbora = arhivaIzbora;
+
+            if(aktivni == null) 
+            {
+                this.aktivni = new izbori();
+                
+            }
         }
 
         private void kreatorIzbora_Click(object sender, RoutedEventArgs e)
         {
 
-          Kreiranje kreator = new Kreiranje(ref aktivni);
-          Okvir.NavigationService.Navigate(kreator);
+            if (!aktivni.PostojeIzbori())
+            {
+                Kreiranje kreator = new Kreiranje(ref aktivni, ref Okvir, ref arhivaIzbora);
+                Okvir.NavigationService.Navigate(kreator);
+            }
+            else
+            {
+                MessageBox.Show("Vec postoje kreirani izbori, koji jos nisu zavrseni!!!");
+            }
 
+          
+          
         }
     }
 }
