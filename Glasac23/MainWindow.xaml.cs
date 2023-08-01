@@ -1,4 +1,5 @@
-﻿using Glasac23.pages;
+﻿using Glasac23.Objekti;
+using Glasac23.pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,11 @@ namespace Glasac23
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        List<izbori> arhivaIzbora = new List<izbori>();
+        izbori aktivni;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +36,7 @@ namespace Glasac23
         public void ucitavanjeMenija()
         {
 
-            MainMenu meni = new MainMenu(ref Okvir);
+            MainMenu meni = new MainMenu(ref Okvir, ref aktivni, ref arhivaIzbora);
             Okvir.NavigationService.Navigate(meni);
 
         }

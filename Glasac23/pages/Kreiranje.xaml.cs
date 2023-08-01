@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Glasac23.Objekti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace Glasac23.pages
     /// </summary>
     public partial class Kreiranje : Page
     {
-        public Kreiranje()
+
+        izbori aktivni;
+
+        public Kreiranje(ref izbori aktivni)
         {
             InitializeComponent();
+            this.aktivni = aktivni;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Glasac23.Objekti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,16 +23,21 @@ namespace Glasac23.pages
     {
 
         Frame Okvir;
-        public MainMenu(ref Frame frejm)
+        List<izbori> arhivaIzbora = new List<izbori>();
+        izbori aktivni;
+
+        public MainMenu(ref Frame frejm, ref izbori aktivni, ref List<izbori> arhivaIzbora)
         {
             InitializeComponent();
             Okvir = frejm;
+            this.aktivni = aktivni;
+            this.arhivaIzbora = arhivaIzbora;
         }
 
         private void kreatorIzbora_Click(object sender, RoutedEventArgs e)
         {
 
-          Kreiranje kreator = new Kreiranje();
+          Kreiranje kreator = new Kreiranje(ref aktivni);
           Okvir.NavigationService.Navigate(kreator);
 
         }

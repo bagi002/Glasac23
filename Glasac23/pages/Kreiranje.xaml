@@ -8,8 +8,8 @@
       d:DesignHeight="500" d:DesignWidth="1200"
       Title="Kreiranje">
 
-    <Border Background="#D8FFFFFF" Width="800" CornerRadius="50"
-            Height="450" Margin="0 0 0 50">
+    <Border Background="#D8E2CECE" Width="800" CornerRadius="50"
+            Height="450" Margin="0 0 0 0" VerticalAlignment="Top">
     
         <StackPanel>
 
@@ -44,26 +44,60 @@
                          Width="120"/>
             </StackPanel>
 
-            <Grid Margin="150 8 150 0" Background="#B2FFFFFF" Height="200">
+            <Grid Margin="150 8 150 0" Height="200">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0">
+                <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0" CornerRadius="20"  Background="#B2FFFFFF" >
                     <StackPanel>
                         <TextBlock Text="PREDSJEDNICKI IZBORI" FontSize="20"
                                    HorizontalAlignment="Center"/>
-                        <TextBlock Text="IME I PREZIME KANDIDATA:" FontSize="16"/>
+                        <TextBlock Text="IME I PREZIME KANDIDATA:" FontSize="16"
+                                   Margin="10 2 0 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Margin="10 2 0 0" Width="120"
+                                     Padding="1" BorderBrush="#FF7F93FF" Background="#FFE7F5F7"/>
+                            <Button Content="DODAJ" Margin="10 2 0 0"/>
+                        </StackPanel>
                         <TextBlock Text="LISTA KANDIDATA:" FontSize="16"
                                    Margin="10 2 0 0"/>
+                        <ScrollViewer Margin="10 2 10 2" Height="90">
+                            <ListBox />
+
+
+                        </ScrollViewer>
                         
                     
                     </StackPanel>
                 </Border>
 
-                
-                
+                <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" CornerRadius="20"  Background="#B2FFFFFF" Margin="3 0 0 0">
+                    <StackPanel>
+                        <TextBlock Text="PARLAMENTARNI IZBORI" FontSize="20"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="NAZIV POLITICKE PARTIJE:" FontSize="16"
+                                   Margin="10 2 0 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Margin="10 2 0 0" Width="120"
+                                     Padding="1" BorderBrush="#FF7F93FF" Background="#FFE7F5F7"/>
+                            <Button Content="DODAJ" Margin="10 2 0 0"/>
+                        </StackPanel>
+                        <TextBlock Text="LISTA PARTIJA:" FontSize="16"
+                                   Margin="10 2 0 0"/>
+                        <ScrollViewer Margin="10 2 10 2" Height="90">
+                            <ListBox />
+
+
+                        </ScrollViewer>
+
+
+                    </StackPanel>
+                </Border>
+
+
+
             </Grid>
 
         </StackPanel>
