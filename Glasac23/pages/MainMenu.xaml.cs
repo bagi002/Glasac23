@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Glasac23.Objekti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,18 +23,38 @@ namespace Glasac23.pages
     {
 
         Frame Okvir;
-        public MainMenu(ref Frame frejm)
+        List<izbori> arhivaIzbora = new List<izbori>();
+        izbori aktivni;
+
+        public MainMenu(ref Frame frejm, ref izbori aktivni, ref List<izbori> arhivaIzbora)
         {
             InitializeComponent();
             Okvir = frejm;
+            this.aktivni = aktivni;
+            this.arhivaIzbora = arhivaIzbora;
+
+            if(aktivni == null) 
+            {
+                this.aktivni = new izbori();
+                
+            }
         }
 
         private void kreatorIzbora_Click(object sender, RoutedEventArgs e)
         {
 
-          Kreiranje kreator = new Kreiranje();
-          Okvir.NavigationService.Navigate(kreator);
+            if (!aktivni.PostojeIzbori())
+            {
+                Kreiranje kreator = new Kreiranje(ref aktivni, ref Okvir, ref arhivaIzbora);
+                Okvir.NavigationService.Navigate(kreator);
+            }
+            else
+            {
+                MessageBox.Show("Vec postoje kreirani izbori, koji jos nisu zavrseni!!!");
+            }
 
+          
+          
         }
     }
 }

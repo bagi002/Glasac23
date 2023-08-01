@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1200">
     <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="149*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+       
         <Grid.Background>
             <ImageBrush ImageSource="/images/walpers/mainWalper.png"/>
         </Grid.Background>
