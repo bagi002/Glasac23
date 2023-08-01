@@ -54,15 +54,10 @@
                     <StackPanel>
                         <TextBlock Text="PREDSJEDNICKI IZBORI" FontSize="20"
                                    HorizontalAlignment="Center"/>
+                        <TextBlock Text="IME I PREZIME KANDIDATA:" FontSize="16"/>
                         <TextBlock Text="LISTA KANDIDATA:" FontSize="16"
                                    Margin="10 2 0 0"/>
-                        <ListView >
-                            <ListBoxItem Content="test1"/>
-                            <ListBoxItem Content="test1"/>
-                            <ListBoxItem Content="test1"/>
-                            <ListBoxItem Content="test1"/>
-                            <ListBoxItem Content="test1"/>
-                        </ListView>
+                        
                     
                     </StackPanel>
                 </Border>
