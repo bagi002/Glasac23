@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glasac23", "Glasac23\Glasac23.csproj", "{97B8AA92-8A11-49EF-BD44-381951520C68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97B8AA92-8A11-49EF-BD44-381951520C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B8AA92-8A11-49EF-BD44-381951520C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B8AA92-8A11-49EF-BD44-381951520C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B8AA92-8A11-49EF-BD44-381951520C68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F361A874-4035-4945-ACC3-8011404316C5}
+	EndGlobalSection
+EndGlobal
