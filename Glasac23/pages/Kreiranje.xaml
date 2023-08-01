@@ -9,7 +9,7 @@
       Title="Kreiranje">
 
     <Border Background="#D8E2CECE" Width="800" CornerRadius="50"
-            Height="450" Margin="0 0 0 0" VerticalAlignment="Top">
+            Height="480" Margin="0 0 0 0" VerticalAlignment="Top">
     
         <StackPanel>
 
@@ -19,11 +19,13 @@
                        Margin="80 0 0 0"/>
             <StackPanel Orientation="Horizontal">
 
-                <CheckBox Margin="120 16 0 0"/>
+                <CheckBox Margin="120 16 0 0" x:Name="predsedickiButton" Checked="predsedickiButton_Checked"
+                                                                         Unchecked="predsedickiButton_Unchecked"/>
                 <TextBlock Text="PREDSJEDNICKI IZBORI" Margin="5 13 0 0"
                            FontSize="14" FontWeight="Bold"/>
 
-                <CheckBox Margin="80 16 0 0"/>
+                <CheckBox Margin="80 16 0 0" x:Name="parlamentarniButton" Checked="parlamentarniButton_Checked"
+                                                                          Unchecked="parlamentarniButton_Unchecked"/>
                 <TextBlock Text="PARLAMENTARNI IZBORI" Margin="5 13 0 0"
                            FontSize="14" FontWeight="Bold"/>
 
@@ -50,46 +52,64 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0" CornerRadius="20"  Background="#B2FFFFFF" >
+                <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0" CornerRadius="20"  Background="#B2FFFFFF"
+                        x:Name="PredsednickiDialog" Visibility="Hidden">
                     <StackPanel>
                         <TextBlock Text="PREDSJEDNICKI IZBORI" FontSize="20"
                                    HorizontalAlignment="Center"/>
                         <TextBlock Text="IME I PREZIME KANDIDATA:" FontSize="16"
                                    Margin="10 2 0 0"/>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Margin="10 2 0 0" Width="120"
+                            <TextBox Margin="10 2 0 0" Width="120" x:Name="noviKandidatPolje"
                                      Padding="1" BorderBrush="#FF7F93FF" Background="#FFE7F5F7"/>
-                            <Button Content="DODAJ" Margin="10 2 0 0"/>
+                            <Button Content="DODAJ" Margin="10 2 0 0" x:Name="dodajKandidata" Click="dodajKandidata_Click"/>
                         </StackPanel>
                         <TextBlock Text="LISTA KANDIDATA:" FontSize="16"
                                    Margin="10 2 0 0"/>
                         <ScrollViewer Margin="10 2 10 2" Height="90">
-                            <ListBox />
+                            <ListBox x:Name="listaKandidataItems">
+                                <ListBox.ItemTemplate>
 
+                                    <DataTemplate>
+                                        
+                                        <TextBlock Text="{Binding IspisUListu}"/>
 
+                                    </DataTemplate>
+
+                                </ListBox.ItemTemplate>
+                            </ListBox>
                         </ScrollViewer>
                         
                     
                     </StackPanel>
                 </Border>
 
-                <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" CornerRadius="20"  Background="#B2FFFFFF" Margin="3 0 0 0">
+                <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" CornerRadius="20"  Background="#B2FFFFFF" 
+                        Margin="3 0 0 0" x:Name="parlamentarniDialogg" Visibility="Hidden">
                     <StackPanel>
                         <TextBlock Text="PARLAMENTARNI IZBORI" FontSize="20"
                                    HorizontalAlignment="Center"/>
                         <TextBlock Text="NAZIV POLITICKE PARTIJE:" FontSize="16"
                                    Margin="10 2 0 0"/>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox Margin="10 2 0 0" Width="120"
+                            <TextBox Margin="10 2 0 0" Width="120" x:Name="imeStrankeUnos"
                                      Padding="1" BorderBrush="#FF7F93FF" Background="#FFE7F5F7"/>
-                            <Button Content="DODAJ" Margin="10 2 0 0"/>
+                            <Button Content="DODAJ" Margin="10 2 0 0" x:Name="dodajStranku" Click="dodajStranku_Click"/>
                         </StackPanel>
                         <TextBlock Text="LISTA PARTIJA:" FontSize="16"
                                    Margin="10 2 0 0"/>
                         <ScrollViewer Margin="10 2 10 2" Height="90">
-                            <ListBox />
+                            <ListBox x:Name="listaPartija">
+                                <ListBox.ItemTemplate>
 
+                                    <DataTemplate>
 
+                                        <TextBlock Text="{Binding IspisUListu}"/>
+
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+
+                            </ListBox>
                         </ScrollViewer>
 
 

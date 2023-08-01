@@ -6,7 +6,28 @@ using System.Threading.Tasks;
 
 namespace Glasac23.Objekti
 {
-    internal class partije
+    public class partije
     {
+        string ime;
+        int id;
+        int brojGlasova;
+        double procenat;
+
+        public partije(string podatak, int n)
+        {
+            ime = podatak;
+            id = n;
+        }
+
+        public string IspisUListu
+        {
+            get
+            {
+                string podatak;
+                podatak = id + 1 + ".   " + ime;
+                return podatak;
+            }
+            set { }
+        }
     }
 }
