@@ -25,9 +25,17 @@ namespace Glasac23.Objekti
         double izlaznost = 0;
         bool aktivni = false;
 
+        List<listic> ListaListica = new List<listic>();
+        listic primerakBlanko;
+
         public izbori() 
         { 
 
+        }
+
+        public void kreirajBlankoListica()
+        {
+            primerakBlanko = new listic(predsednickiKandidati, stranke);
         }
 
         public void izbornaDodjelka(int a, int b) // bez promene 0 , nije cekirano 1 , cekirano 2 , prva cifra predsenicki druga parlamentarni
@@ -74,6 +82,7 @@ namespace Glasac23.Objekti
             datum = dd;
             brojGlasaca = n;
             aktivni = true;
+            this.kreirajBlankoListica();
         }
 
         public bool PostojeIzbori()

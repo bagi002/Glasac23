@@ -14,6 +14,12 @@ namespace Glasac23.Objekti
         int brojGlasova;
         double postotak;
 
+        public string dajImePrezime()
+        {
+            string podatak = ime + " " + prezime;
+            return podatak;
+        }
+
         public kandidati(string imePrezime , int n) 
         {
             string[] x = imePrezime.Split(' ');

@@ -56,5 +56,21 @@ namespace Glasac23.pages
           
           
         }
+
+        private void GlasanjeNav_Click(object sender, RoutedEventArgs e)
+        {
+            if (aktivni.PostojeIzbori())
+            {
+                glasanje prozor = new glasanje(ref aktivni, ref arhivaIzbora, ref Okvir);
+                Okvir.NavigationService.Navigate(prozor);
+            }
+            else 
+            {
+                MessageBox.Show("Ne postoje trenutno aktivni izbori");
+            }
+
+
+            
+        }
     }
 }

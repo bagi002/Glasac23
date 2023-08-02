@@ -22,7 +22,7 @@
                 <Button Content="GLASANJE" Padding="2"
                         FontSize="28" Background="#D8141042" Foreground="White"
                         FontWeight="Bold" Margin="60 15 50 15"
-                        Height="50"/>
+                        Height="50" x:Name="GlasanjeNav" Click="GlasanjeNav_Click"/>
                 <Button Content="STATISTIKA IZBORA" Padding="2"
                         FontSize="28" Background="#D8141042" Foreground="White"
                         FontWeight="Bold" Margin="60 15 50 15"
