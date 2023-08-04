@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Glasac23.Objekti.modelViewObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,19 +10,19 @@ namespace Glasac23.Objekti
     public class listic
     {
         int id;
-        List<bool> kandidatiGlasovi = new List<bool>();
-        List<String> ImenaIPrezimenaKandidata = new List<String>();
         List<bool> strankeGlasovi = new List<bool>();
         List<String> listaImenaPartija = new List<String>();
+
+        List<GlasackiLIsticKandidatMV> ListaKaandidata = new List<GlasackiLIsticKandidatMV>();
 
         public listic(List<kandidati> predsednickiKandidati, List<partije> stranke) 
         {
             foreach(kandidati prolaz in  predsednickiKandidati)
             {
                 string x = prolaz.dajImePrezime();
-                ImenaIPrezimenaKandidata.Add(x);
+                GlasackiLIsticKandidatMV dodaj = new GlasackiLIsticKandidatMV(x);
 
-                kandidatiGlasovi.Add(false);
+                ListaKaandidata.Add(dodaj);
             }
 
             foreach(partije prolaz in stranke)
@@ -31,6 +32,16 @@ namespace Glasac23.Objekti
 
                 strankeGlasovi.Add(false);
             }
-        } 
+        }
+        
+        public List<GlasackiLIsticKandidatMV> dajListuKandidata()
+        {
+            return ListaKaandidata;
+        }
+
+        public void vratiListuKandidata(List<GlasackiLIsticKandidatMV> x)
+        {
+            ListaKaandidata = x;
+        }
     }
 }

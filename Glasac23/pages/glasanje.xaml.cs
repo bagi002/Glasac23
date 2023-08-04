@@ -1,4 +1,5 @@
 ﻿using Glasac23.Objekti;
+using Glasac23.Objekti.modelViewObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace Glasac23.pages
         Frame Okvir;
         List<izbori> arhivaIzbora;
         izbori aktivni;
+        listic trenutni;
+
+        int activPage = 1;
+
+        List<GlasackiLIsticKandidatMV> prikazKandidata;
 
         public glasanje(ref izbori aktivni, ref List<izbori> arhivaIzbora, ref Frame Okvir)
         {
@@ -32,6 +38,60 @@ namespace Glasac23.pages
             this.aktivni = aktivni;
             this.Okvir = Okvir;
             this.arhivaIzbora = arhivaIzbora;
+
+            trenutni = aktivni.dajPrimerakListica();
+
+            prikazKandidata = trenutni.dajListuKandidata();
+
+            listaKandidataGlasanje.ItemsSource = prikazKandidata;
+
+            if (!aktivni.PostojePredsednicki())
+            {
+                activPage = 2;
+            }
+
+        }
+
+        private void DugmeDalje_Click(object sender, RoutedEventArgs e)
+        {
+            if(activPage == 1)
+            {
+                trenutni.vratiListuKandidata(prikazKandidata);
+
+                if (aktivni.PostojePArlamentarni())
+                {
+                    activPage = 2;
+                    ImeIzboraUI.Text = "PARLAMENTARNI IZBORI";
+                }
+                else
+                {
+                    activPage = 3;
+                    FirstPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF91F7FF"));
+                    thirdPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF67A1FF"));
+
+                    ImeIzboraUI.Text = "POTVRDITE GLASACKI LISTIC";
+
+                    GlasanjePredsednickiUI.Visibility = Visibility.Hidden;
+                    PozdravnaPorukaUI.Visibility = Visibility.Visible;
+
+                    DugmeDalje.Visibility = Visibility.Hidden;
+                    DugmeGlasaj.Visibility = Visibility.Visible;
+
+                    DugmeDalje.Width = 0;
+                    DugmeDalje.Height = 0;
+                    DugmeDalje.Margin = new Thickness(0);
+                }
+            }
+        }
+
+        private void DugmeGlasaj_Click(object sender, RoutedEventArgs e)
+        {
+
+            aktivni.dodajUKutiju(trenutni);
+
+            MainMenu meni = new MainMenu(ref Okvir, ref aktivni, ref arhivaIzbora);
+            Okvir.NavigationService.Navigate(meni);
+
         }
     }
 }
