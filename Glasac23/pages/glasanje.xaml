@@ -30,7 +30,7 @@
                     <StackPanel Grid.Column="0"  x:Name="GlasanjePredsednickiUI" Visibility="Visible">
                         <TextBlock Text="LISTA KANDIDATA: " FontSize="20" Margin="55 10 0 10"
                                    FontWeight="Bold"/>
-                        
+
                         <ListBox Background="{x:Null}" x:Name="listaKandidataGlasanje">
 
                             <ListBox.ItemTemplate>
@@ -42,11 +42,31 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
-                            
+
                         </ListBox>
-                        
-                        
                     </StackPanel>
+
+
+                    <StackPanel Grid.Column="0"  x:Name="GlasanjePalamentarniUI" Visibility="Hidden">
+                        <TextBlock Text="LISTA KANDIDATA: " FontSize="20" Margin="55 10 0 10"
+                                   FontWeight="Bold"/>
+
+                        <ListBox Background="{x:Null}" x:Name="listaPartijaGlasanje">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="80 0 0 0" x:Name="Partija">
+                                        <CheckBox Margin="5 3" IsChecked="{Binding glas, Mode=TwoWay}"/>
+                                        <TextBlock Text="{Binding nazivPartije}" Margin="5 0 0 0"
+                                                   FontSize="16" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+                    </StackPanel>
+                    
+
                     <StackPanel Grid.Column="0" x:Name="PozdravnaPorukaUI" Visibility="Hidden">
                         <TextBlock Text="Hvala vam sto ste obavili vasu gradjansku duznost i glasali vas glasacki listic upucen je u centralnu bazu na dalju obradu. Klikom na dugme glasasj vi potvrdjujete prethodno popunjen glasacki listic."
                                    FontSize="20" Margin="55 10 55 10"
@@ -78,7 +98,7 @@
                     </Border>
 
                     <Border Width="55" Height="55" Background="#FF91F7FF" CornerRadius="100" 
-                            BorderBrush="#FF3679FF" BorderThickness="4" Margin="25 0 0 0">
+                            BorderBrush="#FF3679FF" BorderThickness="4" Margin="25 0 0 0" x:Name="secondPageUI">
                         <TextBlock Text="2" VerticalAlignment="Center" HorizontalAlignment="Center"
                                    FontSize="45" FontWeight="Bold" Foreground="#FFFF0B0B"/>
                     </Border>

@@ -10,9 +10,9 @@ namespace Glasac23.Objekti
     public class listic
     {
         int id;
-        List<bool> strankeGlasovi = new List<bool>();
-        List<String> listaImenaPartija = new List<String>();
+       
 
+        List<GlasackiListicPartijaVM> listaPartija = new List<GlasackiListicPartijaVM>();
         List<GlasackiLIsticKandidatMV> ListaKaandidata = new List<GlasackiLIsticKandidatMV>();
 
         public listic(List<kandidati> predsednickiKandidati, List<partije> stranke) 
@@ -28,9 +28,10 @@ namespace Glasac23.Objekti
             foreach(partije prolaz in stranke)
             {
                 string x = prolaz.vratiNaziv();
-                listaImenaPartija.Add(x);
 
-                strankeGlasovi.Add(false);
+                GlasackiListicPartijaVM test =  new GlasackiListicPartijaVM(x);
+                listaPartija.Add(test);
+               
             }
         }
         
@@ -42,6 +43,16 @@ namespace Glasac23.Objekti
         public void vratiListuKandidata(List<GlasackiLIsticKandidatMV> x)
         {
             ListaKaandidata = x;
+        }
+
+        public List<GlasackiListicPartijaVM> dajListuPartija()
+        {
+            return listaPartija;
+        }
+
+        public void vratiListuPartija(List<GlasackiListicPartijaVM> x)
+        {
+            listaPartija = x;
         }
     }
 }

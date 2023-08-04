@@ -31,6 +31,7 @@ namespace Glasac23.pages
         int activPage = 1;
 
         List<GlasackiLIsticKandidatMV> prikazKandidata;
+        List<GlasackiListicPartijaVM> prikazPartija;
 
         public glasanje(ref izbori aktivni, ref List<izbori> arhivaIzbora, ref Frame Okvir)
         {
@@ -42,12 +43,23 @@ namespace Glasac23.pages
             trenutni = aktivni.dajPrimerakListica();
 
             prikazKandidata = trenutni.dajListuKandidata();
+            prikazPartija = trenutni.dajListuPartija();
 
             listaKandidataGlasanje.ItemsSource = prikazKandidata;
+            listaPartijaGlasanje.ItemsSource = prikazPartija;
+
+
+
 
             if (!aktivni.PostojePredsednicki())
             {
                 activPage = 2;
+                ImeIzboraUI.Text = "PARLAMENTARNI IZBORI";
+                GlasanjePredsednickiUI.Visibility = Visibility.Hidden;
+                GlasanjePalamentarniUI.Visibility = Visibility.Visible;
+
+                FirstPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF91F7FF"));
+                secondPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF67A1FF"));
             }
 
         }
@@ -62,6 +74,11 @@ namespace Glasac23.pages
                 {
                     activPage = 2;
                     ImeIzboraUI.Text = "PARLAMENTARNI IZBORI";
+                    GlasanjePredsednickiUI.Visibility = Visibility.Hidden;
+                    GlasanjePalamentarniUI.Visibility = Visibility.Visible;
+
+                    FirstPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF91F7FF"));
+                    secondPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF67A1FF"));
                 }
                 else
                 {
@@ -81,6 +98,30 @@ namespace Glasac23.pages
                     DugmeDalje.Height = 0;
                     DugmeDalje.Margin = new Thickness(0);
                 }
+            }
+            else if(activPage == 2)
+            {
+                trenutni.vratiListuPartija(prikazPartija);
+
+                FirstPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF91F7FF"));
+                secondPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF67A1FF"));
+
+                activPage = 3;
+                    secondPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF91F7FF"));
+                    thirdPageUI.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF67A1FF"));
+
+                    ImeIzboraUI.Text = "POTVRDITE GLASACKI LISTIC";
+
+                    GlasanjePalamentarniUI.Visibility = Visibility.Hidden;
+                    PozdravnaPorukaUI.Visibility = Visibility.Visible;
+
+                    DugmeDalje.Visibility = Visibility.Hidden;
+                    DugmeGlasaj.Visibility = Visibility.Visible;
+
+                    DugmeDalje.Width = 0;
+                    DugmeDalje.Height = 0;
+                    DugmeDalje.Margin = new Thickness(0);
+                
             }
         }
 
