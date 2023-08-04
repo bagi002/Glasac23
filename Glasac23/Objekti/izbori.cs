@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
+using System.Windows.Navigation;
 
 namespace Glasac23.Objekti
 {
@@ -25,9 +26,37 @@ namespace Glasac23.Objekti
         double izlaznost = 0;
         bool aktivni = false;
 
+        List<listic> ListaListica = new List<listic>();
+        listic primerakBlanko;
+
+        public void dodajUKutiju(listic popunjen)
+        {
+            ListaListica.Add(popunjen);
+            brGlasova += 1;
+            primerakBlanko = null;
+            this.kreirajBlankoListica();
+
+            izlaznost = (brGlasova / brojGlasaca) * 100; 
+        }
+
         public izbori() 
         { 
 
+        }
+
+        public listic dajPrimerakListica()
+        {
+
+            listic x = primerakBlanko;
+
+            return x;
+            x = null;
+
+        }
+
+        public void kreirajBlankoListica()
+        {
+            primerakBlanko = new listic(predsednickiKandidati, stranke);
         }
 
         public void izbornaDodjelka(int a, int b) // bez promene 0 , nije cekirano 1 , cekirano 2 , prva cifra predsenicki druga parlamentarni
@@ -74,11 +103,22 @@ namespace Glasac23.Objekti
             datum = dd;
             brojGlasaca = n;
             aktivni = true;
+            this.kreirajBlankoListica();
         }
 
         public bool PostojeIzbori()
         {
             return aktivni;
+        }
+
+        public bool PostojePredsednicki()
+        {
+            return predsednicki;
+        }
+
+        public bool PostojePArlamentarni()
+        {
+            return parlamentarni;
         }
 
     }

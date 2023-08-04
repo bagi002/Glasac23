@@ -1,0 +1,124 @@
+﻿<Page x:Class="Glasac23.pages.glasanje"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Glasac23.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="1200"
+      Title="glasanje">
+
+    <Grid>
+
+        <Border Height="450" Width="800" VerticalAlignment="Top" Background="#CCEDBD95"
+                CornerRadius="60">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0"  x:Name="GlasanjePredsednickiUI" Visibility="Visible">
+                        <TextBlock Text="LISTA KANDIDATA: " FontSize="20" Margin="55 10 0 10"
+                                   FontWeight="Bold"/>
+
+                        <ListBox Background="{x:Null}" x:Name="listaKandidataGlasanje">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="80 0 0 0" x:Name="Kandidat">
+                                        <CheckBox Margin="5 3" IsChecked="{Binding glas, Mode=TwoWay}"/>
+                                        <TextBlock Text="{Binding nazivKandidata}" Margin="5 0 0 0"
+                                                   FontSize="16" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="0"  x:Name="GlasanjePalamentarniUI" Visibility="Hidden">
+                        <TextBlock Text="LISTA KANDIDATA: " FontSize="20" Margin="55 10 0 10"
+                                   FontWeight="Bold"/>
+
+                        <ListBox Background="{x:Null}" x:Name="listaPartijaGlasanje">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="80 0 0 0" x:Name="Partija">
+                                        <CheckBox Margin="5 3" IsChecked="{Binding glas, Mode=TwoWay}"/>
+                                        <TextBlock Text="{Binding nazivPartije}" Margin="5 0 0 0"
+                                                   FontSize="16" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+                    </StackPanel>
+                    
+
+                    <StackPanel Grid.Column="0" x:Name="PozdravnaPorukaUI" Visibility="Hidden">
+                        <TextBlock Text="Hvala vam sto ste obavili vasu gradjansku duznost i glasali vas glasacki listic upucen je u centralnu bazu na dalju obradu. Klikom na dugme glasasj vi potvrdjujete prethodno popunjen glasacki listic."
+                                   FontSize="20" Margin="55 10 55 10"
+                                   FontWeight="Bold" TextWrapping="Wrap"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Na listi mozete oznaciti samo jednog kandidata ili jednu partiju. Ako oznacite vise kandidata/partija ili ne oznacite ni jednog kandidata/partiju  vas glas bice nevazeci." FontSize="20" Margin="55 10 55 10"
+                                   FontWeight="Bold" TextWrapping="Wrap"/>
+                        <Button Content="DALJE" FontSize="25" Margin="120 60 0 0"
+                                FontWeight="ExtraBold" Background="#FF29A1E0"
+                                x:Name="DugmeDalje" Click="DugmeDalje_Click" Visibility="Visible"
+                                Width="150"/>
+                        <Button Content="GLASAJ" FontSize="25" Margin="120 60 0 0"
+                                FontWeight="ExtraBold" Width="150" Background="#FF29A1E0"
+                                x:Name="DugmeGlasaj" Click="DugmeGlasaj_Click" Visibility="Hidden"/>
+                    </StackPanel >
+
+                </Grid>
+
+                <TextBlock Grid.Row="0" Text="GLASANJE" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontSize="55" FontWeight="Bold" FontFamily="Fugaz One"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                    <Border Width="55" Height="55" Background="#FF67A1FF" CornerRadius="100" 
+                            BorderBrush="#FF3679FF" BorderThickness="4" x:Name="FirstPageUI">
+                        <TextBlock Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   FontSize="45" FontWeight="Bold" Foreground="#FFFF0B0B"/>
+                    </Border>
+
+                    <Border Width="55" Height="55" Background="#FF91F7FF" CornerRadius="100" 
+                            BorderBrush="#FF3679FF" BorderThickness="4" Margin="25 0 0 0" x:Name="secondPageUI">
+                        <TextBlock Text="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   FontSize="45" FontWeight="Bold" Foreground="#FFFF0B0B"/>
+                    </Border>
+
+                    <Border Width="55" Height="55" Background="#FF91F7FF" CornerRadius="100" 
+                            BorderBrush="#FF3679FF" BorderThickness="4" Margin="25 0 0 0" x:Name="thirdPageUI">
+                        <TextBlock Text="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   FontSize="45" FontWeight="Bold" Foreground="#FFFF0B0B"/>
+                    </Border>
+
+
+                </StackPanel>
+
+                <TextBlock Text="PREDSEDNICKI IZBORI" Grid.Row="2" x:Name="ImeIzboraUI"
+                           FontSize="30" FontWeight="Bold" Margin="40 0 0 0"/>
+
+                
+
+            </Grid>
+        </Border>
+        
+    </Grid>
+</Page>

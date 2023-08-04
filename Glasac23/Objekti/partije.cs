@@ -19,6 +19,11 @@ namespace Glasac23.Objekti
             id = n;
         }
 
+        public string vratiNaziv()
+        {
+            return ime;
+        }
+
         public string IspisUListu
         {
             get
